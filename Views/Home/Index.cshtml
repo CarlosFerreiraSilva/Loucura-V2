@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model List<Vaga>
+    var n = 1;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoderCarrer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+   
+</head>
+<body>
+   
+    <header>
+        <br />
+        <br />
+        <br />
+
+
+        <a href="#top" class="position-fixed">
+            <i class="uil uil-arrow-down-right"></i>
+        </a>
+       
+        <div class="row">
+
+
+
+            @foreach (var vaga in Model)
+            {
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@vaga.titulo | @vaga.empresa</h5>
+                            <p class="card-text">@vaga.salario</p>
+                            <p class="card-text"> <img src="~/css/trabalho.png" alt="icon" height="20" width="20">@vaga.descricao_vaga </p>
+                            <a href="@vaga.url"  target="_blank"><button class="buttonA"> Ir para Link</button></a>
+                           
+                        </div>
+                    </div>
+                </div>
+                <br>
+            }
+          
+            <button id="load-more" class="btn btn-primary">Carregar mais</button>
+        </div>
+
+    </header>
+       
+
+      
+    
+</body>
+
+@section scripts {
+    <script>
+        $(function() {
+            $('#load-more').click(function() {
+                n++;
+                $.ajax({
+                    url: '@Url.Action("CarregarDivs", "Home")',
+                    data: { skip: $('#div-card').children().length },
+                    success: function(html) {
+                        $('#div-card').append(html);
+                    }
+                });
+            });
+        });
+    </script>
+}
