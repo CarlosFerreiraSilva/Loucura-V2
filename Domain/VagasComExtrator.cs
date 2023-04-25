@@ -1,14 +1,16 @@
 ﻿using AngleSharp.Html.Parser;
-using CoderCarrer.Domain;
 using CoderCarrer.Models;
 using HtmlAgilityPack;
+using System.Collections;
 
-namespace CoderCarrer.DAL
+namespace CoderCarrer.Domain
 {
-         
-        public class VagasTrovit 
+    public class VagasComExtrator : IExtratorVaga
+    {
+        public IEnumerator GetEnumerator()
         {
-
+            throw new NotImplementedException();
+        }
             List<Vaga> _lista;
             public List<Vaga> getVagas()
             {
@@ -21,13 +23,13 @@ namespace CoderCarrer.DAL
 
                 var parser = new HtmlParser();
                 var httpClient = new HttpClient();
-                var content = await httpClient.GetStringAsync("https://empregos.trovit.com.br/index.php/cod.search_jobs/what_d.Programador/sug.0/isUserSearch.1");
+                var content = await httpClient.GetStringAsync("https://www.vagas.com.br/vagas-de-programador");
                 var document = await parser.ParseDocumentAsync(content);
                 var doc = new HtmlDocument();
                 doc.LoadHtml(document.DocumentElement.OuterHtml);
 
 
-                var vaga = doc.DocumentNode.SelectNodes("//div[contains(@class, 'item-info')]");
+                var vaga = doc.DocumentNode.SelectNodes("//li[contains(@class, 'vaga odd ')]");
                 _lista = new List<Vaga>();
                 foreach (var item in vaga)
                 {
@@ -38,17 +40,17 @@ namespace CoderCarrer.DAL
                         var htmldocument = new HtmlDocument();
                         htmldocument.LoadHtml(item.InnerHtml);
 
-                    var titulo = htmldocument.DocumentNode.SelectSingleNode("//h4").InnerText;
-                        var detalhe = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'company-address')]").InnerText;
-                        var empresa = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'company')]").InnerText;
-                        var descricao = htmldocument.DocumentNode.SelectSingleNode("//p[contains(@class, 'description')]").InnerText;
-                        var link = htmldocument.DocumentNode.SelectSingleNode("//a[contains(@class, 'js-item-title')]").GetAttributeValue("href", "");
+                        var titulo = htmldocument.DocumentNode.SelectSingleNode("//a[contains(@class, 'link-detalhes-vaga')]").InnerText;
+                        var detalhe = htmldocument.DocumentNode.SelectSingleNode("//div[contains(@class, 'nivelQtdVagas')]").InnerText;
+                        var empresa = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'emprVaga')]").InnerText;
+                        var descricao = htmldocument.DocumentNode.SelectSingleNode("//div[contains(@class, 'detalhes')]").InnerText;
+                        var link = htmldocument.DocumentNode.SelectSingleNode("//a[contains(@class, 'link-detalhes-vaga')]").GetAttributeValue("href", "");
 
                         newVaga.titulo = titulo;
                         newVaga.empresa = empresa;
                         newVaga.descricao_vaga = descricao;
                         newVaga.salario = detalhe;
-                        newVaga.url = link;
+                        newVaga.url = "https://www.vagas.com.br/" + link;
 
                         newVaga.titulo = titulo;
 
@@ -67,7 +69,6 @@ namespace CoderCarrer.DAL
 
 
             }
-
 
         }
     }

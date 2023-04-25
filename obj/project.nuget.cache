@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ND+Jz9nkJ4rLR4NNZg3N7u64Eif3m2hEY0OCihB7k9sqmCZjSWgdP09CCs5ytVHjSjxyWoxwu/ooH01mSN7x0g==",
+  "dgSpecHash": "B8Yw5ggeYtyK+77iR17eIH9EpTNDBeiX2w/S0+NcF+i2lqEIJ/7R+kORPKeQ5llCzD7g0ga5I0T+0l/ApzvE8g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\android\\Documents\\GitHub\\novo\\CoderCarrer.csproj",
+  "projectFilePath": "C:\\Users\\android\\Documents\\GitHub\\Loucura-V2\\CoderCarrer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\android\\.nuget\\packages\\anglesharp\\1.0.1\\anglesharp.1.0.1.nupkg.sha512",
     "C:\\Users\\android\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",

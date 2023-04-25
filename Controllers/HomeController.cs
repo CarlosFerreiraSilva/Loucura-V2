@@ -21,20 +21,20 @@ namespace CoderCarrer.Controllers
         public async Task<IActionResult> Index()
         {
             IExtratorVaga vagasDao = new TrabalhaBrasilExtrator();
-            IExtratorVaga vagascomDao = new VagaComDAO();
-            IExtratorVaga vagasTrovit = new VagasTrovit();
-            IExtratorVaga vagasTrampo = new TrampoDAO();
+            IExtratorVaga vagascomDao = new VagasComExtrator();
+            IExtratorVaga vagasTrovit = new VagasTrovitExtrator();
+           // IExtratorVaga vagasTrampo = new TrampoDAO();
 
             List<Vaga> vagas = vagasDao.getVagas();
             List<Vaga> vagascom = vagascomDao.getVagas();
             List<Vaga> vagastrovit = vagasTrovit.getVagas();
-            List<Vaga> vagastrampo = vagasTrampo.getVagas();
+           // List<Vaga> vagastrampo = vagasTrampo.getVagas();
 
             List<Vaga> vaga = new List<Vaga>();
             vaga.AddRange(vagas);
             vaga.AddRange(vagascom);
             vaga.AddRange(vagastrovit);
-            vaga.AddRange(vagastrampo);
+           //vaga.AddRange(vagastrampo);
 
 
 
@@ -49,12 +49,15 @@ namespace CoderCarrer.Controllers
         }
 
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Sincronizar()
         {
             VagaDAO vagaInsert = new VagaDAO();
 
             vagaInsert.sincronizarInserindoVagas(new TrabalhaBrasilExtrator());
+            vagaInsert.sincronizarInserindoVagas(new VagasComExtrator());
+            vagaInsert.sincronizarInserindoVagas(new VagasTrovitExtrator());
+
             return View();
         }
 

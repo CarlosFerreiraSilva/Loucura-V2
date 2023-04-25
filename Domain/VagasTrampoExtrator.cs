@@ -5,19 +5,18 @@ using System.Collections;
 
 namespace CoderCarrer.Domain
 {
-    public class TrabalhaBrasilExtrator : IExtratorVaga
+    public class VagasTrampoExtrator : IExtratorVaga
     {
-        List<Vaga> _lista;
-
         public IEnumerator GetEnumerator()
         {
             throw new NotImplementedException();
         }
 
+
+        List<Vaga> _lista;
         public List<Vaga> getVagas()
         {
             ExtrairDados().Wait();
-
             return _lista;
         }
 
@@ -26,13 +25,13 @@ namespace CoderCarrer.Domain
 
             var parser = new HtmlParser();
             var httpClient = new HttpClient();
-            var content = await httpClient.GetStringAsync("https://www.trabalhabrasil.com.br/vagas-empregos/programador?pagina=1");
+            var content = await httpClient.GetStringAsync("https://trampos.co/oportunidades/?ct[]=programacao");
             var document = await parser.ParseDocumentAsync(content);
             var doc = new HtmlDocument();
             doc.LoadHtml(document.DocumentElement.OuterHtml);
 
 
-            var vaga = doc.DocumentNode.SelectNodes("//div[contains(@class, 'jg__job')]");
+            var vaga = doc.DocumentNode.SelectNodes("//div[contains(@class, 'ember-view')]");
             _lista = new List<Vaga>();
             foreach (var item in vaga)
             {
@@ -40,17 +39,16 @@ namespace CoderCarrer.Domain
                 var htmldocument = new HtmlDocument();
                 htmldocument.LoadHtml(item.InnerHtml);
 
-                var titulo = htmldocument.DocumentNode.SelectSingleNode("//h2[contains(@class, 'job__name')]").InnerText;
-                var detalhe = htmldocument.DocumentNode.SelectSingleNode("//h3[contains(@class, 'job__detail')]").InnerText;
-                var empresa = htmldocument.DocumentNode.SelectSingleNode("//h3[contains(@class, 'job__company')]").InnerText;
-                var descricao = htmldocument.DocumentNode.SelectSingleNode("//p[contains(@class, 'job__description')]").InnerText;
-                var link = htmldocument.DocumentNode.SelectSingleNode("//a[contains(@class, 'job__vacancy')]").GetAttributeValue("href", "");
+                var titulo = htmldocument.DocumentNode.SelectSingleNode("//div[contains(@class, 'result-item__title  result-item__title--no-date')]").InnerText;
+                var detalhe = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'result-item__location-label')]").InnerText;
+                var empresa = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'result-item__company-label')]").InnerText;
 
-                newVaga.titulo = titulo;
+                var link = htmldocument.DocumentNode.SelectSingleNode("//a[contains(@class, 'result-item__link')]").GetAttributeValue("href", "");
+
                 newVaga.empresa = empresa;
-                newVaga.descricao_vaga = descricao;
+                newVaga.titulo = titulo;
                 newVaga.salario = detalhe;
-                newVaga.url = "https://www.trabalhabrasil.com.br/" + link;
+                newVaga.url = link;
 
                 _lista.Add(newVaga);
             }
@@ -58,8 +56,6 @@ namespace CoderCarrer.Domain
 
             return _lista;
 
-
         }
-
     }
 }

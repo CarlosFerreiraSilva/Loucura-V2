@@ -9,41 +9,45 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CoderCarrer
 build_property.RootNamespace = CoderCarrer
-build_property.ProjectDir = C:\Users\android\Documents\GitHub\novo\
+build_property.ProjectDir = C:\Users\android\Documents\GitHub\Loucura-V2\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\android\Documents\GitHub\novo
+build_property.MSBuildProjectDirectory = C:\Users\android\Documents\GitHub\Loucura-V2
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Empresa/Index.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Empresa/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wcmVzYVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Home/Index.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Home/Privacy.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Shared/Error.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Home/Sincronizar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaW5jcm9uaXphci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/_ViewImports.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/_ViewStart.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/android/Documents/GitHub/novo/Views/Shared/_Layout.cshtml]
+[C:/Users/android/Documents/GitHub/Loucura-V2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-y68e93sdpd

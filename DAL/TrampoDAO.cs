@@ -5,7 +5,7 @@ using HtmlAgilityPack;
 
 namespace CoderCarrer.DAL
 {
-    public class TrampoDAO : IExtratorVaga
+    public class TrampoDAO 
     {
         List<Vaga> _lista;
         public List<Vaga> getVagas()

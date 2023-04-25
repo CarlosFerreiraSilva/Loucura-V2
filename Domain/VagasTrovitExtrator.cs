@@ -1,14 +1,16 @@
 ﻿using AngleSharp.Html.Parser;
-using CoderCarrer.Domain;
 using CoderCarrer.Models;
 using HtmlAgilityPack;
+using System.Collections;
 
-namespace CoderCarrer.DAL
+namespace CoderCarrer.Domain
 {
-         
-        public class VagasTrovit 
+    public class VagasTrovitExtrator : IExtratorVaga
+    {
+        public IEnumerator GetEnumerator()
         {
-
+            throw new NotImplementedException();
+        }
             List<Vaga> _lista;
             public List<Vaga> getVagas()
             {
@@ -38,7 +40,7 @@ namespace CoderCarrer.DAL
                         var htmldocument = new HtmlDocument();
                         htmldocument.LoadHtml(item.InnerHtml);
 
-                    var titulo = htmldocument.DocumentNode.SelectSingleNode("//h4").InnerText;
+                        var titulo = htmldocument.DocumentNode.SelectSingleNode("//h4").InnerText;
                         var detalhe = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'company-address')]").InnerText;
                         var empresa = htmldocument.DocumentNode.SelectSingleNode("//span[contains(@class, 'company')]").InnerText;
                         var descricao = htmldocument.DocumentNode.SelectSingleNode("//p[contains(@class, 'description')]").InnerText;
@@ -71,4 +73,5 @@ namespace CoderCarrer.DAL
 
         }
     }
+    
 

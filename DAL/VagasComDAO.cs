@@ -6,7 +6,7 @@ using HtmlAgilityPack;
 
 namespace CoderCarrer.DAL
 {
-    public class VagaComDAO : IExtratorVaga
+    public class VagaComDAO 
     {
 
         List<Vaga> _lista;

@@ -11,6 +11,6 @@
         public string url { get; set; }
         public DateTime dataColeta { get; set; }
         
-        //public string imagem { get; set; }
+        
     }
 }
